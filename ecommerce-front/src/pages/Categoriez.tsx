@@ -4,7 +4,7 @@ import { useAppSelector, useAppDispatch } from "@store/hooks/hooks";
 import { actGetCategories } from "@store/catogries/categoriesSllice";
 import { useEffect } from "react"
 import { Loading } from "@components/feedback";
-import { GridList } from "@components/common";
+import { GridList, Heading } from "@components/common";
 
 const Categoriez = () => {
   const dispatch = useAppDispatch()
@@ -14,7 +14,7 @@ const Categoriez = () => {
   useEffect(() => {
     if (!records.length)
       dispatch(actGetCategories())
-  }, [dispatch])
+  }, [dispatch , records])
 
   // this part i repeat it on page product
   // the only difference i render component product instead of category
@@ -25,6 +25,7 @@ const Categoriez = () => {
   return (
     // i need to wrap the category component with loading this mean i will pass to loading component children
     <Container>
+      <Heading>Categories</Heading>
       <Loading status={loading} error={error}>
         <GridList
           records={records}

@@ -16,6 +16,8 @@ export interface IProduct {
     img: string;
     price : string;
     cat_prefix?: string;
+    quantity?: number;
+    max? : number;
 }
 
 

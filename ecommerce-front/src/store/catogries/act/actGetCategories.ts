@@ -9,7 +9,8 @@ import axios from "axios";
 const actGetCategories = createAsyncThunk("categories/actGetCategories", async (_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI
     try {
-        const response = await axios.get<IRecord[]>("http://localhost:5005/categories")
+        const response = await axios.get<IRecord[]>("/category")
+        console.log("response" , response)
         const CategoriesData = response.data
         return CategoriesData;
     } catch (error) {
